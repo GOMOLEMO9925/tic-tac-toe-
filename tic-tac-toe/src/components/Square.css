@@ -1,43 +1,130 @@
 .square {
   width: 100%;
   aspect-ratio: 1;
-  background: #ffffff;
-  border: 2px solid #333;
-  border-radius: 8px;
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  border: none;
+  border-radius: 18px;
   font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
+  font-weight: 800;
+  color: #ffffff;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .square {
+    font-size: 2rem;
+    border-radius: 16px;
+  }
+}
+
+/* Responsive - Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .square {
+    font-size: 2.25rem;
+    border-radius: 18px;
+  }
+}
+
+.square::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
+}
+
+.square:hover:not(.filled)::before {
+  opacity: 1;
 }
 
 .square:hover:not(.filled) {
-  background: #f0f0f0;
-  transform: scale(1.02);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, #334155 0%, #1e293b 100%);
+}
+
+.square:active:not(.filled) {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s ease;
 }
 
 .square.filled {
   cursor: not-allowed;
+  transform: none;
+}
+
+.square.filled:hover {
+  transform: none;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .square.winning {
-  background: #90EE90;
-  animation: pulse 0.5s ease-in-out;
+  background: linear-gradient(145deg, #10b981 0%, #059669 100%);
+  animation: winning-pulse 0.6s ease-in-out;
+  box-shadow: 
+    0 12px 24px rgba(16, 185, 129, 0.5),
+    0 6px 12px rgba(16, 185, 129, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+@keyframes winning-pulse {
+  0%, 100% { 
+    transform: scale(1);
+  }
+  25% { 
+    transform: scale(1.08) rotate(2deg);
+  }
+  75% { 
+    transform: scale(1.05) rotate(-2deg);
+  }
 }
 
 /* X and O colors */
-.square:not(:empty)[data-value="X"] {
-  color: #ff6b6b;
+.square.filled {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.square:not(:empty)[data-value="O"] {
-  color: #4ecdc4;
+.square.filled[data-value="X"] {
+  color: #f87171;
+  text-shadow: 
+    0 0 12px rgba(248, 113, 113, 0.7),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.square.filled[data-value="O"] {
+  color: #60a5fa;
+  text-shadow: 
+    0 0 12px rgba(96, 165, 250, 0.7),
+    0 2px 8px rgba(0, 0, 0, 0.5);
 }

@@ -1,87 +1,171 @@
 .status {
   text-align: center;
-  padding: 1rem;
+  padding: 0.9rem 1.2rem;
   margin-bottom: 1rem;
-  border-radius: 8px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  letter-spacing: -0.3px;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .status {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    gap: 0.5rem;
+  }
+
+  .timer-display {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Responsive - Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .status {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+.status-message {
+  display: block;
+  line-height: 1.4;
 }
 
 .status.player-x {
-  background: #ffebee;
-  color: #c62828;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  color: #dc2626;
+  border-color: rgba(248, 113, 113, 0.2);
+  box-shadow: 
+    0 4px 12px rgba(248, 113, 113, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .status.player-o {
-  background: #e3f2fd;
-  color: #1565c0;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: #2563eb;
+  border-color: rgba(96, 165, 250, 0.2);
+  box-shadow: 
+    0 4px 12px rgba(96, 165, 250, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .status.winner {
-  background: #c8e6c9;
-  color: #2e7d32;
-  animation: celebrate 0.5s ease-in-out;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 
+    0 6px 20px rgba(16, 185, 129, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: celebrate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .status.draw {
-  background: #fff3e0;
-  color: #ef6c00;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  color: #d97706;
+  border-color: rgba(251, 191, 36, 0.2);
+  box-shadow: 
+    0 4px 12px rgba(251, 191, 36, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .status.thinking {
-  background: #f3e5f5;
-  color: #6a1b9a;
-  animation: pulse-text 1.5s infinite;
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  color: #7c3aed;
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 
+    0 4px 12px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: pulse-text 1.5s ease-in-out infinite;
 }
 
 .status.timeout {
-  background: #ffebee;
-  color: #c62828;
-  animation: celebrate 0.5s ease-in-out;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  color: #dc2626;
+  border-color: rgba(248, 113, 113, 0.3);
+  box-shadow: 
+    0 6px 20px rgba(248, 113, 113, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: celebrate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timer-display {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  margin-top: 0.3rem;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  margin-top: 0.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
 }
 
 .timer-green {
-  background: #c8e6c9;
-  color: #2e7d32;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #059669;
+  box-shadow: 
+    0 2px 8px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .timer-yellow {
-  background: #fff9c4;
-  color: #f57f17;
+  background: linear-gradient(135deg, #fef9c3 0%, #fde68a 100%);
+  color: #d97706;
+  box-shadow: 
+    0 2px 8px rgba(251, 191, 36, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .timer-red {
-  background: #ffcdd2;
-  color: #c62828;
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #dc2626;
+  box-shadow: 
+    0 2px 8px rgba(248, 113, 113, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .timer-pulse {
-  animation: timer-pulse 0.5s infinite;
+  animation: timer-pulse 0.5s ease-in-out infinite;
 }
 
 @keyframes celebrate {
-  0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.05); }
-  75% { transform: scale(1.02); }
+  0%, 100% { 
+    transform: scale(1);
+  }
+  25% { 
+    transform: scale(1.05) rotate(1deg);
+  }
+  75% { 
+    transform: scale(1.03) rotate(-1deg);
+  }
 }
 
 @keyframes pulse-text {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
 }
 
 @keyframes timer-pulse {
@@ -90,7 +174,7 @@
     opacity: 1;
   }
   50% { 
-    transform: scale(1.1);
-    opacity: 0.9;
+    transform: scale(1.08);
+    opacity: 0.95;
   }
 }

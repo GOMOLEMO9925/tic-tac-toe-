@@ -7,6 +7,7 @@ const Square = ({ value, onClick, isWinningSquare }) => {
       className={`square ${value ? 'filled' : ''} ${isWinningSquare ? 'winning' : ''}`}
       onClick={onClick}
       disabled={!!value}
+      data-value={value || ''}
     >
       {value}
     </button>

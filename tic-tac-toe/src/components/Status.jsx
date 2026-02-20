@@ -42,7 +42,7 @@ const Status = ({ winner, isDraw, currentPlayer, isAiThinking, timeRemaining, ti
 
   return (
     <div className={`status ${statusClass}`}>
-      {message}
+      <div className="status-message">{message}</div>
       {timerDisplay}
     </div>
   );

@@ -1,0 +1,43 @@
+.square {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square:hover:not(.filled) {
+  background: #f0f0f0;
+  transform: scale(1.02);
+}
+
+.square.filled {
+  cursor: not-allowed;
+}
+
+.square.winning {
+  background: #90EE90;
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* X and O colors */
+.square:not(:empty)[data-value="X"] {
+  color: #ff6b6b;
+}
+
+.square:not(:empty)[data-value="O"] {
+  color: #4ecdc4;
+}

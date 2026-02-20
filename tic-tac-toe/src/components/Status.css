@@ -1,0 +1,96 @@
+.status {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status.player-x {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.status.player-o {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status.winner {
+  background: #c8e6c9;
+  color: #2e7d32;
+  animation: celebrate 0.5s ease-in-out;
+}
+
+.status.draw {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.status.thinking {
+  background: #f3e5f5;
+  color: #6a1b9a;
+  animation: pulse-text 1.5s infinite;
+}
+
+.status.timeout {
+  background: #ffebee;
+  color: #c62828;
+  animation: celebrate 0.5s ease-in-out;
+}
+
+.timer-display {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.timer-green {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+
+.timer-yellow {
+  background: #fff9c4;
+  color: #f57f17;
+}
+
+.timer-red {
+  background: #ffcdd2;
+  color: #c62828;
+}
+
+.timer-pulse {
+  animation: timer-pulse 0.5s infinite;
+}
+
+@keyframes celebrate {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  75% { transform: scale(1.02); }
+}
+
+@keyframes pulse-text {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes timer-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
